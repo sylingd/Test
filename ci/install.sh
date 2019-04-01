@@ -13,8 +13,8 @@ main() {
 	./configure
 	make -j4
 	sudo make install
-	phpenv config-add ci/seaslog.ini
-	# echo "extension = swoole.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+	cp ci/seaslog.ini ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/
+	# phpenv config-add seaslog.ini
 	echo $(php -r "var_dump(extension_loaded('seaslog'));")
 	echo $(php -r "var_dump(SEASLOG_DEBUG);")
 
