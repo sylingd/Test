@@ -14,8 +14,7 @@ main() {
 	make -j4
 	sudo make install
 	# cp ci/seaslog.ini ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/
-	cd $TRAVIS_BUILD_DIR
-	phpenv config-add seaslog.ini
+	phpenv config-add $TRAVIS_BUILD_DIR/ci/seaslog.ini
 	echo $(php -r "var_dump(extension_loaded('seaslog'));")
 	echo $(php -r "var_dump(SEASLOG_DEBUG);")
 
