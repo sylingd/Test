@@ -1,0 +1,26 @@
+sudo: true
+language: php
+dist: trusty
+php:
+  - '7.2'
+
+services:
+  - mysql
+
+notifications:
+  email: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+before_install:
+  - mkdir build
+  - phpenv config-rm xdebug.ini
+  - bash ci/install.sh
+
+install:
+  - composer install
+
+script:
+  - php test.php
