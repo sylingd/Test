@@ -16,11 +16,9 @@ cache:
 
 before_install:
   - mkdir build
-  - phpenv config-rm xdebug.ini
-  - bash ci/install.sh
 
 install:
   - composer install
 
 script:
-  - php test.php
+  - composer test
